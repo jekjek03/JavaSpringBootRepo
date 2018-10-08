@@ -1,18 +1,13 @@
 package com.homecredit.weatherinfo.controller;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.homecredit.weatherinfo.domain.WeatherForecast;
-import com.homecredit.weatherinfo.entity.WeatherForecastEntry;
 import com.homecredit.weatherinfo.service.WeatherForecastEntryService;
 import com.homecredit.weatherinfo.service.WeatherForecastService;
 
@@ -100,7 +95,7 @@ public class WeatherForecastController {
 	/**
 	 * This method is used to save weather information to DB Table (WeatherLog)
 	 */
-	@RequestMapping(method = RequestMethod.POST, value = "/weatherforecasts/save")
+	@RequestMapping("/weatherforecasts/save")
 	public String saveToDB() {
 		try {
 			weatherForecastEntrySvc.saveWeatherForecastEntryToDB();
@@ -110,8 +105,6 @@ public class WeatherForecastController {
 		  		+ "ERROR: <b>" 
 				+ ex.getMessage();
 		}
-		
 	}
-
 	
 }

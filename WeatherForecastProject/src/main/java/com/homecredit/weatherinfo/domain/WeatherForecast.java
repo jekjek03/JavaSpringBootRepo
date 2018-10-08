@@ -13,8 +13,7 @@ public class WeatherForecast implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	private String responseId;
+	//private String responseId;
 	private String location;
 	private String actualWeather;
 	private String temperature;
@@ -27,7 +26,7 @@ public class WeatherForecast implements Serializable {
 		this.location = location;
 	}
 	
-	@JsonProperty("responseId")
+	/*@JsonProperty("responseId")
 	public String getResponseId() {
 		return responseId;
 	}
@@ -35,7 +34,7 @@ public class WeatherForecast implements Serializable {
 	@JsonSetter("id")
 	public void setResponseId(String responseId) {
 		this.responseId = responseId;
-	}
+	}*/
 	
 	@JsonProperty("location")
 	public String getLocation() {
