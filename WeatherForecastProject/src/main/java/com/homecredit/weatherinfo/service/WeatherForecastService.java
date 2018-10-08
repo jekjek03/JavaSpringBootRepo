@@ -13,12 +13,12 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriTemplate;
 
 import com.homecredit.weatherinfo.domain.WeatherForecast;
+import com.homecredit.weatherinfo.util.ConstantUtils;
 
 @Service
 public class WeatherForecastService {
 	
 	private List<String> locations = Arrays.asList("London", "Prague", "San Francisco");
-	private static final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={key}";
 	
 	/**OPTION #2: Return a JSON format of Weather Data; NOTE: Can be entered dynamically in the URL
 	 * Get weather data by city
@@ -28,7 +28,7 @@ public class WeatherForecastService {
 	 * @return WeatherForecast
 	 */
 	public WeatherForecast getWeatherForecast(String city, String country, String apiKey) {
-		URI url = new UriTemplate(WEATHER_URL).expand(city, country, apiKey);
+		URI url = new UriTemplate(ConstantUtils.OPEN_WEATHER_MAP_URL).expand(city, country, apiKey);
 		return getResponse(url, WeatherForecast.class);
 	}
 	
@@ -39,7 +39,7 @@ public class WeatherForecastService {
 	 * @return WeatherForecast
 	 */
 	public WeatherForecast getWeatherForecast(String city, String apiKey) {
-		URI url = new UriTemplate(WEATHER_URL).expand(city, apiKey);
+		URI url = new UriTemplate(ConstantUtils.OPEN_WEATHER_MAP_URL).expand(city, apiKey);
 		return getResponse(url, WeatherForecast.class);
 	}
 	

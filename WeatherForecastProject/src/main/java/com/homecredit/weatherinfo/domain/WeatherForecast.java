@@ -7,13 +7,17 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
+/**
+ * @author JakeAGUSTIN
+ * @version 1.0
+ */
 public class WeatherForecast implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	//private String responseId;
+
 	private String location;
 	private String actualWeather;
 	private String temperature;
@@ -25,16 +29,6 @@ public class WeatherForecast implements Serializable {
 	public WeatherForecast(String location) {
 		this.location = location;
 	}
-	
-	/*@JsonProperty("responseId")
-	public String getResponseId() {
-		return responseId;
-	}
-	
-	@JsonSetter("id")
-	public void setResponseId(String responseId) {
-		this.responseId = responseId;
-	}*/
 	
 	@JsonProperty("location")
 	public String getLocation() {

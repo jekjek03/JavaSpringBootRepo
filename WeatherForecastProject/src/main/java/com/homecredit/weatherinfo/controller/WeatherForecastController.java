@@ -8,19 +8,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.homecredit.weatherinfo.domain.WeatherForecast;
-import com.homecredit.weatherinfo.service.WeatherForecastEntryService;
+import com.homecredit.weatherinfo.service.WeatherLogService;
 import com.homecredit.weatherinfo.service.WeatherForecastService;
+import com.homecredit.weatherinfo.util.ConstantUtils;
+
+/**
+ * @author JakeAGUSTIN
+ * @version 1.0
+ */
 
 @RestController
 public class WeatherForecastController {
 
-	private static final String API_KEY = "c406495527522c36fcf6236cd5a757f8";
-	
 	@Autowired
 	private WeatherForecastService weatherForecastSvc;
 	
 	@Autowired
-	private WeatherForecastEntryService weatherForecastEntrySvc;
+	private WeatherLogService weatherForecastEntrySvc;
 	
 	//#################################################################################################
 	// 1. API that displays list of weather information from London, Prague, San Francisco.
@@ -64,7 +68,7 @@ public class WeatherForecastController {
 	 */
 	@RequestMapping("/weatherforecasts")
 	public List<WeatherForecast> getWeatherForecasts() {
-		return weatherForecastSvc.getWeatherForecasts(API_KEY);
+		return weatherForecastSvc.getWeatherForecasts(ConstantUtils.API_KEY);
 	}
 	
 	/**
