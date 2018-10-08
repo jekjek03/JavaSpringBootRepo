@@ -24,7 +24,7 @@ public class WeatherForecastController {
 	private WeatherForecastService weatherForecastSvc;
 	
 	@Autowired
-	private WeatherLogService weatherForecastEntrySvc;
+	private WeatherLogService weatherLogSvc;
 	
 	//#################################################################################################
 	// 1. API that displays list of weather information from London, Prague, San Francisco.
@@ -102,7 +102,7 @@ public class WeatherForecastController {
 	@RequestMapping("/weatherforecasts/save")
 	public String saveToDB() {
 		try {
-			weatherForecastEntrySvc.saveWeatherForecastEntryToDB();
+			weatherLogSvc.saveWeatherForecastEntryToDB();
 			return "Weather Info has been save";
 		} catch(Exception ex) {
 		  return "System failed to save the weather data to Database. <br>"
